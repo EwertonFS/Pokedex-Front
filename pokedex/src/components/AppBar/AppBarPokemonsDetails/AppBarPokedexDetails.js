@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link } from "react-router-dom";
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function AppBarPokedexDetails() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -66,22 +66,20 @@ export default function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Link to={"/pokemons"}>
-          <button>Pokedex</button>
-          </Link>
+          <button>Voltar Home Pokedex</button>
           
-
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-           Lista de Pokemons  
+           Voltar para Pokemons  
           </Typography>
-          
+          <button>adicinar ou remover pokedex</button>
 
-          <Search>
+
+         {/*  <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -89,7 +87,7 @@ export default function SearchAppBar() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search> */}
         </Toolbar>
       </AppBar>
     </Box>

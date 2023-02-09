@@ -1,12 +1,15 @@
-/* import HomePage from "./pages/home/HomePage"; */
-import PokedexPage from "./pages/pokedex/PokedexPage"
+import React from 'react';
+import RoutesApp from "./routes/Routes";
+
+
+
 
 
 function App() {
   return (
     <>  
-       {/*  <HomePage /> */}
-       <PokedexPage />
+       <RoutesApp /> 
+      
         
     </>
   );
