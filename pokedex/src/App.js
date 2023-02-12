@@ -1,5 +1,6 @@
 import React from 'react';
 import RoutesApp from "./routes/Routes";
+import GlobalState from "./global/GlobalState";
 
 
 
@@ -8,8 +9,11 @@ import RoutesApp from "./routes/Routes";
 function App() {
   return (
     <>  
-       <RoutesApp /> 
-      
+      <GlobalState>
+       <RoutesApp>
+
+       </RoutesApp>
+       </GlobalState>
         
     </>
   );
