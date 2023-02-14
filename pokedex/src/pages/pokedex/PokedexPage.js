@@ -1,11 +1,13 @@
+import SearchAppBar from "../../components/AppBar/AppBarHome/SearchAppBar";
 import AppBarPokedex from "../../components/AppBar/AppBarPokedex/AppBarPokedex";
 import HomeCards from "../../components/Cards/HomeCards/HomeCards";
 
 const PokedexPage = () => {
   return (
     <>
-      <AppBarPokedex />
-      <HomeCards />
+      {/* <AppBarPokedex /> */}
+      <SearchAppBar  title = {'Pokédex'}/>
+      
     </>
   );
 };

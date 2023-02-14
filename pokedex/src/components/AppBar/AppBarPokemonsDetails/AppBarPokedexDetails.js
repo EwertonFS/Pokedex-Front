@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -87,9 +87,9 @@ export default function AppBarPokedexDetails() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search> */}
-        </Toolbar>
+          </Search> */
+ /*        </Toolbar>
       </AppBar>
     </Box>
   );
-}
+}  */

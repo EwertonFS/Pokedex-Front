@@ -9,6 +9,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
+import { LeftHeaderButton, Title } from './styled';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,7 +53,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+
+
+export default function SearchAppBar({title }) {
+
+
+  const selectAppBar = () =>{
+    switch (title) {
+      case "Lista de Pokémons":
+        return "Ir para Pokedex";
+      case "Pokédex":
+        return "Voltar para lista de pokemons";
+      default:
+        return "Voltar";
+    }
+  }
+
+
+
+
+
+
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -66,20 +88,44 @@ export default function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Link to={"/pokemons"}>
-          <button>Pokedex</button>
-          </Link>
+         
+         
+
           
 
+        {/*   <Link to={"/detalhesPokemons"}>
+          <button onClick={selectAppBar()}>Voltar para lista de pokemons</button>
+          </Link> */}
+          
+          
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-           Lista de Pokemons  
+           <Title>{title}</Title> 
+           
           </Typography>
+
           
+          <LeftHeaderButton>
+          {selectAppBar()}
+          </LeftHeaderButton> 
+
+
+          
+
+        {/*   <Link to={"/pokemons"}>
+          <button >{selectAppBar()}</button>
+          </Link>
+          
+          <Link to={"/detalhesPokemons"}>
+          <button>
+           {selectAppBar()}
+          </button>
+          </Link> */}
+             
 
           <Search>
             <SearchIconWrapper>

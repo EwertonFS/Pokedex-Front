@@ -10,7 +10,7 @@ const HomePage = () => {
   
   return (
     <>
-      <SearchAppBar />
+      <SearchAppBar  title = {"Lista de Pokémons"}/>
       <ContainerHomePage>
       { pokemons.map((poke) => {
             return <HomeCards key={poke.name} poke={poke} />;

@@ -4,11 +4,13 @@ import CardsStatus from "../../components/Cards/PokemonsDetails/CardsStatus";
 import CardsMoves from "../../components/Cards/PokemonsDetails/CardsMoves";
 import CardsTypes from "../../components/Cards/PokemonsDetails/CardsTypes";
 import { ContainerCards } from "./styled";
+import SearchAppBar from "../../components/AppBar/AppBarHome/SearchAppBar";
 
 const PokemonsDetailsPage = () => {
   return (
     <>
-      <AppBarPokedexDetails />
+    <SearchAppBar title={'Lista de Detalhes'}/>
+      {/* <AppBarPokedexDetails /> */}
       <ContainerCards>
         <CardsImg />
         <CardsStatus />
