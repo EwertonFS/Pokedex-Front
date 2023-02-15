@@ -16,7 +16,7 @@ const HomePage = () => {
             return <HomeCards key={poke.name} poke={poke} />;
           }) }
        
-     {/* {  <HomeCards /> } */}
+     
       </ContainerHomePage>
     </>
   );

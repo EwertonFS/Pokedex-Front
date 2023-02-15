@@ -11,19 +11,32 @@ export default function PokemonsDetailsCardsStatus() {
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
-          STATUS 
           <br />
-          hp:49 
+         <strong><h3>Poderes</h3></strong>
           <br />
-          Attack:45 
           <br />
-          defense: 52 
+         <strong> hp:</strong>49 
           <br />
-          especial-ataque: 43
           <br />
-          especial-defense : 54 
+          <br />
+          <strong>Defense:</strong>52
+          <br />
+          <br />
+          <br />
+          <strong> Hp:</strong>49 
+          <br />
+          <br />
+          <br />
+          <strong> Especial-ataque: </strong>53
+          <br />
+          <br />
+          <br />
+          <strong> Especial-defesa:</strong>54
            <br />
-          speed:54
+           <br />
+           <br />
+           <strong> speed:</strong>55
+
         </Typography>
         <Typography variant="body2" color="text.secondary"></Typography>
       </CardContent>

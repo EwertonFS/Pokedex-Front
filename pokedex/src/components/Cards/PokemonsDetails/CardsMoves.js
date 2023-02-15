@@ -11,14 +11,22 @@ export default function CardsType() {
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
-              Moves
+        <strong>  Movie</strong>
           <br />
-          Movie name  01
           <br />
-          Movie Name 02
+           <br />
+        <strong>  Movie:</strong> name  01
           <br />
-          Movie Name 03
           <br />
+          <br />
+        <strong>  Movie:</strong> Name 02
+          <br />
+          <br />
+          <br />
+        <strong>  Movie:</strong> Name 03
+          <br />
+           <br />
+           <br />
   
         </Typography>
       

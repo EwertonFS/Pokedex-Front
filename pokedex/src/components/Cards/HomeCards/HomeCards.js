@@ -39,6 +39,7 @@ export default function HomeCards(props) {
             <AddCircleOutlineIcon>
             </AddCircleOutlineIcon>
             </Button>
+            
           <Link to={"/detalhesPokemons"}>
             <Button size="small">info
             <InfoIcon></InfoIcon>

@@ -61,14 +61,13 @@ export default function SearchAppBar({title }) {
   const selectAppBar = () =>{
     switch (title) {
       case "Lista de Pokémons":
-        return "Ir para Pokedex";
+        return <Link to={'/pokemons'}>Ir para Pokedex</Link>
       case "Pokédex":
-        return "Voltar para lista de pokemons";
+        return <Link to={'/'} >Voltar para lista de pokemons</Link>
       default:
-        return "Voltar";
+        return  <Link to={'/'}>Voltar</Link>
     }
   }
-
 
 
 
