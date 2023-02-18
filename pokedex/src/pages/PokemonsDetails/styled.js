@@ -17,7 +17,7 @@ height:85vh;
 export const Imagem =styled.div`
 display:flex;
 flex-direction:column;
-margin-top:2em;
+margin-top:2%;
 
 
 
@@ -25,13 +25,22 @@ margin-top:2em;
 
 export const FrontImg =styled.div`
 margin-top:7em;
-height:60%;
+height:40%;
 
 
 `
 
 export const BackImg =styled.div`
-height:60%;
+height:5%;
+margin-bottom:40%;
+
+`
+
+export const ContainerStatus = styled.div`
+display:flex;
+flex-direction:column;
+width:25%;
+height:80%
 
 
 `
@@ -39,13 +48,13 @@ height:60%;
 export const ContainerType=styled.div`
 display:flex;
 flex-direction:row;
-margin-top:5em;
+margin-top:4em;
 height:10%;
-
+padding-top:1px;
 `
 export const ContainerTypeMove=styled.div`
 display:column;
-
+margin:0 px;
 `
 
 export const Move=styled.div`

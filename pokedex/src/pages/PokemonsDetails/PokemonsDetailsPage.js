@@ -1,4 +1,5 @@
 import CardsImg from "../../components/Cards/PokemonsDetails/CardsImg";
+import CardsImgBack from "../../components/Cards/PokemonsDetails/CardsImgBack";
 import CardsStatus from "../../components/Cards/PokemonsDetails/CardsStatus";
 import CardsMoves from "../../components/Cards/PokemonsDetails/CardsMoves";
 import CardsTypes from "../../components/Cards/PokemonsDetails/CardsTypes";
@@ -10,31 +11,40 @@ import {
   ContainerType,
   Move,
   ContainerTypeMove,
+  ContainerStatus,
 } from "./styled";
 import SearchAppBar from "../../components/AppBar/AppBarHome/SearchAppBar";
-import React, { useContext } from "react";
+
+
+import  { useContext, useEffect } from "react";
 import GlobalStateContext from "../../global/GlobalStateContex";
 import { useState } from "react";
 /* import { BASE_URL } from "../constansts/url"; */
-import axios from "axios"
+import { useParams } from "react-router-dom";
+
 
 const PokemonsDetailsPage = () => {
-const pokemons = useContext(GlobalStateContext)
-const pokemonNames=useContext(GlobalStateContext)
-console.log(pokemons)
-
-/*  
-  let list = pokemons.filter((poke) => {
-    if(poke.nome === pokemons.nome){
-        return poke.sprites.front_default
-        
-    }
-  })  */
-
- 
-
-
+  //console.log(front)
+   //pegando pokemons filtrados 
+  const [selectedPokemon, setSelectedPokemon] = useState({});
   
+  const{ pokemons} = useContext(GlobalStateContext);
+  
+  const { name } = useParams(); //trazendo o name da outra tela
+  // console.log(name) ;
+  
+  console.log(pokemons) 
+    
+     
+
+  useEffect(() => {
+    //comparando name de outra tela
+    const currentPokemon = pokemons.find((item) => {return item.name === name})
+    setSelectedPokemon(currentPokemon);
+    
+      
+       } 
+  , [name,pokemons]);
   return (
     <>
       <SearchAppBar title={"Lista de Detalhes"} />
@@ -42,25 +52,35 @@ console.log(pokemons)
       <ContainerCards>
         <Imagem>
           <FrontImg>
-     {/*    {.map((poke)=>{
-           return <CardsImg imgFront = {poke.sprites.front_default}  />
-        })}  */} 
-        <CardsImg />
-        
+            <CardsImg front ={selectedPokemon && selectedPokemon.sprites && selectedPokemon.sprites.front_default}/>
           </FrontImg>
           <BackImg>
-            <CardsImg />
+            <CardsImgBack back ={selectedPokemon && selectedPokemon.sprites && selectedPokemon.sprites.back_default}/>
           </BackImg>
         </Imagem>
 
-        <CardsStatus />
+        <ContainerStatus>
+        <h1>Status</h1>
+        {/* //verificações iteração para objeto fim */}
+         {selectedPokemon && selectedPokemon.stats &&
+         selectedPokemon.stats.map((stat)=>{
+            return  <CardsStatus key={stat?.stat?.name} power={stat?.stat?.name} numberPower ={stat?.base_stat}/> })
+              }
+          </ContainerStatus>
+        
         <ContainerTypeMove>
           <ContainerType>
-            <CardsTypes title={"title"} number={"01"} />
-            <CardsTypes title={"title"} number={"02"} />
+            {selectedPokemon && selectedPokemon.types && 
+            selectedPokemon.types.map((kind)=>
+            <CardsTypes title={kind.type.name} /* number={kind.type.slot} */ />
+            )}
           </ContainerType>
+           <h3>Principais Poderes</h3>
           <Move>
-            <CardsMoves />
+            {selectedPokemon && selectedPokemon.moves && 
+            selectedPokemon.moves.map((moviments,index)=>
+            index<5 && <CardsMoves title={ moviments.move.name}/>
+            )}
           </Move>
         </ContainerTypeMove>
       </ContainerCards>

@@ -11,9 +11,10 @@ import CssBaseline from '@mui/material/CssBaseline'
     <Routes>
 
         <Route path='/' element={<HomePage />}></Route>
-        <Route path='/pokemons' element={<PokedexPage />}></Route>
-        <Route path='/detalhesPokemons' element={<PokemonsDetailsPage />}></Route>
-        
+        <Route path='/pokemon' element={<PokedexPage />}></Route>
+        <Route path='/pokemon/:name' element={<PokemonsDetailsPage />}></Route>
+        {/* //acrescentar erro page */}
+        {/* //<Route path="*" element={<NotFound />} /> */}
     </Routes>
     </CssBaseline>
    )

@@ -5,17 +5,18 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { CardContainer } from "./styled";
 import { Link } from "react-router-dom";
 import GlobalStateContext from "../../../global/GlobalStateContex";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import InfoIcon from '@mui/icons-material/Info';
-import { useNavigate } from "react-router-dom";
-import DetailsPokemonName from "../../../routes/coordination";
+import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
 
-export default function HomeCards(props) {
+
+export default function PokedexCards() {
+
   const { pokemons,setPokemons,pokedex,setPokedex}= useContext(GlobalStateContext)
+  //console.log(pokemons)
+  //console.log(pokemons)
   
   const addPokemons = () =>{
     //vefificando se o pokemons é igual
@@ -26,9 +27,9 @@ export default function HomeCards(props) {
     // adicionando apos remocao
     const orderedPokemons = newPokemonsList.sort((a,b)=>{return a.id - b.id})
 
-    const newPokedexList = [...pokemons,pokemons.name]
+    const newPokexList = [...pokemons,pokemons.name]
 
- 
+    const newPokedexList = [...pokedex, pokemons];
     const orderedPokedex = newPokedexList.sort((a, b) => {
       return a.id - b.id;
     });
@@ -37,47 +38,47 @@ export default function HomeCards(props) {
     setPokemons(orderedPokemons);
   }
 
+
+  const removePokemons = () =>{
+    
+  }
+
+
+  
   return (
-    <CardContainer>
+  
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
           alt="green iguana"
           height="200"
-          image={props.poke.sprites.front_default
+          image={pokemons.sprites.front_default
           }
         />
         <CardContent>
 
-          <Typography gutterBottom variant="h5" component="div">name:{props.poke.name}</Typography>
+          <Typography gutterBottom variant="h5" component="div">name:{pokemons.poke.name}</Typography>
           
            
 
           
         </CardContent>
-        <CardActions>
-            <Button size="small" onClick ={()=>addPokemons()}>
-              <Link to={'/pokemon'}>
+            <CardActions>
+              <Link to={'/pokedex'}>
+            <Button  onClick = {addPokemons()}size="small">
+              Remover
 
-              add
-            <AddCircleOutlineIcon>
-            </AddCircleOutlineIcon>
-            </Link>
+           <RestoreFromTrashIcon></RestoreFromTrashIcon>
             </Button>
-              
+              </Link>
             
-
-
-
-
-
-            <Link to ={(`/pokemon/${props.poke.name}`)}>
-            <Button /* onCLick = {()=>navigate(`/pokemon/${pokemon.name}`)}  */size="small">info
+            <Link to ={(`/pokemon/${pokemons.poke.name}`)}>
+            <Button /* onCLick = {()=>navigate(`/pokemon/${pokemon.name}`)}  */size="small">Info
             <InfoIcon></InfoIcon>
             </Button>
             </Link>
         </CardActions>
       </Card>
-    </CardContainer>
+    
   );
 }
